@@ -19,7 +19,7 @@ rois2_list=($(find ${rois}/ -maxdepth 1 -name "*${rois2}*" -print))
 #merge rois
 for TYPES in ${rois_type}
 do
-	if [[ ${TYPES} == 'rois1' ]]; then
+	if [[ ${TYPES} == ${rois1} ]]; then
 		outname=${roi1outname}
 		list=${rois1_list[*]}
 	else
