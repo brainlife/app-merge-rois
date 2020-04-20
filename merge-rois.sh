@@ -13,8 +13,8 @@ rois_type="${rois1} ${rois2}"
 rois1_list=($(find ${rois}/ -maxdepth 1 -name "*${rois1}*" -print))
 rois2_list=($(find ${rois}/ -maxdepth 1 -name "*${rois2}*" -print))
 
-3dcalc -a ${rois1_list[0]} -prefix rois1ZeroDataset.nii.gz -expr '0'
-3dcalc -a ${rois2_list[0]} -prefix rois2ZeroDataset.nii.gz -expr '0'
+3dcalc -a ${rois1_list[0]} -prefix ${rois1}ZeroDataset.nii.gz -expr '0'
+3dcalc -a ${rois2_list[0]} -prefix ${rois2}ZeroDataset.nii.gz -expr '0'
 
 #merge rois
 for TYPES in ${rois_type}
