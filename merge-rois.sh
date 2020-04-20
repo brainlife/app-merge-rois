@@ -33,4 +33,4 @@ do
 done
 
 # exit
-[ ! -f ./rois/ROI${roi2outname}.nii.gz ] && echo "failed" && exit 1 || echo "complete" && rm -rf *.nii.gz && exit 0
+[ ! -f ./rois/rois/ROI${roi2outname}.nii.gz ] && echo "failed" && exit 1 || echo "complete" && rm -rf *.nii.gz && exit 0
