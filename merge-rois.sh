@@ -10,8 +10,8 @@ roi1outname=`jq -r '.roi1outname' config.json`
 roi2outname=`jq -r '.roi2outname' config.json`
 rois_type="${rois1} ${rois2}"
 
-rois1_list=($(find ${rois}/ -maxdepth 1 -name "*${rois1}*" -print))
-rois2_list=($(find ${rois}/ -maxdepth 1 -name "*${rois2}*" -print))
+rois1_list=($(find ${rois}/ -maxdepth 1 -name "*${rois1}-*" -print))
+rois2_list=($(find ${rois}/ -maxdepth 1 -name "*${rois2}-*" -print))
 
 3dcalc -a ${rois1_list[0]} -prefix ${rois1}ZeroDataset.nii.gz -expr '0'
 3dcalc -a ${rois2_list[0]} -prefix ${rois2}ZeroDataset.nii.gz -expr '0'
