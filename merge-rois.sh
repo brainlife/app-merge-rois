@@ -2,7 +2,7 @@
 
 set -x
 #NOTE TO SELF: THIS IS JUST FOR SOPHIA'S PURPOSES. NEED TO GENERALIZE LATER
-mkdir -p rois
+mkdir -p rois rois/rois
 rois=`jq -r '.rois' config.json`
 rois1=`jq -r '.rois1' config.json`
 rois2=`jq -r '.rois2' config.json`
@@ -29,7 +29,7 @@ do
 	3dTcat -prefix merge_pre_${TYPES}.nii.gz ${TYPES}ZeroDataset.nii.gz `echo ${list[*]}` 
 	3dTstat -argmax -prefix ${outname}_nonbyte.nii.gz merge_pre_${TYPES}.nii.gz
 	3dcalc -byte -a ${outname}_nonbyte.nii.gz -expr 'a' -prefix ${outname}_allbytes.nii.gz
-	3dcalc -a ${outname}_allbytes.nii.gz -expr 'step(a)' -prefix ./rois/ROI${outname}.nii.gz
+	3dcalc -a ${outname}_allbytes.nii.gz -expr 'step(a)' -prefix ./rois/rois/ROI${outname}.nii.gz
 done
 
 # exit
